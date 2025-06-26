@@ -1,0 +1,251 @@
+schema: '2.0'
+stages:
+  build:
+    cmd: python setup.py build_ext --inplace
+    deps:
+    - path: interaction
+      hash: md5
+      md5: e0d064637051442006be687076045fca.dir
+      size: 11141
+      nfiles: 8
+    outs:
+    - path: build/lib.linux-aarch64-cpython-311/
+      hash: md5
+      md5: 10b05d6ab75bccb784058898f01e4c38.dir
+      size: 1204024
+      nfiles: 1
+  blobnbc:
+    cmd: bash ../nbconvert.sh blob.ipynb blob.py
+    deps:
+    - path: ../nbconvert.sh
+      hash: md5
+      md5: f70ecfab428722e30093706428318569
+      size: 216
+    - path: blob.ipynb
+      hash: md5
+      md5: 14c714025826a98b1f32a3dc26f7ca3f
+      size: 7700
+    outs:
+    - path: blob.py
+      hash: md5
+      md5: 9322286a8090119b3bd9735d4750e116
+      size: 3454
+  blob2smallnbc:
+    cmd: bash ../nbconvert.sh blob2_small.ipynb blob2_small.py
+    deps:
+    - path: ../nbconvert.sh
+      hash: md5
+      md5: f70ecfab428722e30093706428318569
+      size: 216
+    - path: blob2_small.ipynb
+      hash: md5
+      md5: c05617de6466de22672273a2ccc0c310
+      size: 46051
+    outs:
+    - path: blob2_small.py
+      hash: md5
+      md5: 2af8119a093d23c152a5e33bcf7f5555
+      size: 1484
+  placementnbc:
+    cmd: bash ../nbconvert.sh placement.ipynb placement.py
+    deps:
+    - path: ../nbconvert.sh
+      hash: md5
+      md5: f70ecfab428722e30093706428318569
+      size: 216
+    - path: placement.ipynb
+      hash: md5
+      md5: 030db12edeaf3eab08d357cd23384834
+      size: 12892
+    outs:
+    - path: placement.py
+      hash: md5
+      md5: 72f4fce58378a39a2c3151b594b8ca99
+      size: 7932
+  blobrun:
+    cmd: export STAGE=run && python blob.py
+    deps:
+    - path: ../spqubolib/spqubolib/
+      hash: md5
+      md5: 9bd5ba508e242b152f1e60d67a6155e7.dir
+      size: 3527192
+      nfiles: 37
+    - path: blob.py
+      hash: md5
+      md5: 9322286a8090119b3bd9735d4750e116
+      size: 3454
+    - path: blob_experiment.py
+      hash: md5
+      md5: a9a380869e8b8cff47a8289f070c8a97
+      size: 8834
+    outs:
+    - path: run/
+      hash: md5
+      md5: 3f12c9f700321fda41aa9c065bebbc54.dir
+      size: 39973788
+      nfiles: 3
+  blob:
+    cmd: export STAGE=plot && python blob.py
+    deps:
+    - path: ../spqubolib/spqubolib/
+      hash: md5
+      md5: 9bd5ba508e242b152f1e60d67a6155e7.dir
+      size: 3527192
+      nfiles: 37
+    - path: blob.py
+      hash: md5
+      md5: 9322286a8090119b3bd9735d4750e116
+      size: 3454
+    - path: blob_plot.py
+      hash: md5
+      md5: 7d4231351001b4982b82e57be02eeb7c
+      size: 4989
+    - path: run/
+      hash: md5
+      md5: 3f12c9f700321fda41aa9c065bebbc54.dir
+      size: 39973788
+      nfiles: 3
+    outs:
+    - path: images/blob/
+      hash: md5
+      md5: fe0a76f561f35f774a5a3dcfce956374.dir
+      size: 63008
+      nfiles: 3
+  blob2small:
+    cmd: export STAGE=plot && python blob2_small.py
+    deps:
+    - path: ../spqubolib/spqubolib/
+      hash: md5
+      md5: 9bd5ba508e242b152f1e60d67a6155e7.dir
+      size: 3527192
+      nfiles: 37
+    - path: blob2_plot.py
+      hash: md5
+      md5: e650c04427d16e911c5df6bde29f3c8a
+      size: 3298
+    - path: blob2_small.py
+      hash: md5
+      md5: 2af8119a093d23c152a5e33bcf7f5555
+      size: 1484
+    - path: blob_experiment.py
+      hash: md5
+      md5: a9a380869e8b8cff47a8289f070c8a97
+      size: 8834
+    - path: blob_plot.py
+      hash: md5
+      md5: 7d4231351001b4982b82e57be02eeb7c
+      size: 4989
+    outs:
+    - path: images/blob2_small/
+      hash: md5
+      md5: ffe01fc1845a3c3df7bc54040dcc0d62.dir
+      size: 233258
+      nfiles: 2
+  placementrun:
+    cmd: export STAGE=run && python placement.py
+    deps:
+    - path: ../spqubolib/spqubolib/
+      hash: md5
+      md5: 9bd5ba508e242b152f1e60d67a6155e7.dir
+      size: 3527192
+      nfiles: 37
+    - path: placement.py
+      hash: md5
+      md5: 72f4fce58378a39a2c3151b594b8ca99
+      size: 7932
+    - path: placement_experiment.py
+      hash: md5
+      md5: bee9c8ea4ccbda005f1ab7371ee79fe3
+      size: 10818
+    outs:
+    - path: run/
+      hash: md5
+      md5: 26c3a7b6727285173e20c62810cc031f.dir
+      size: 18202500
+      nfiles: 2
+  placementcomptime:
+    cmd: export STAGE=comptime && python placement.py
+    deps:
+    - path: ../spqubolib/spqubolib/
+      hash: md5
+      md5: 9bd5ba508e242b152f1e60d67a6155e7.dir
+      size: 3527192
+      nfiles: 37
+    - path: placement.py
+      hash: md5
+      md5: 72f4fce58378a39a2c3151b594b8ca99
+      size: 7932
+    - path: placement_experiment.py
+      hash: md5
+      md5: bee9c8ea4ccbda005f1ab7371ee79fe3
+      size: 10818
+    - path: run/
+      hash: md5
+      md5: 26c3a7b6727285173e20c62810cc031f.dir
+      size: 18202500
+      nfiles: 2
+    outs:
+    - path: comptime/
+      hash: md5
+      md5: cea3cc32afdd888cbaf77cd6f94afc43.dir
+      size: 44198
+      nfiles: 1
+  placement:
+    cmd: export STAGE=plot && python placement.py
+    deps:
+    - path: ../spqubolib/spqubolib/
+      hash: md5
+      md5: 9bd5ba508e242b152f1e60d67a6155e7.dir
+      size: 3527192
+      nfiles: 37
+    - path: comptime/
+      hash: md5
+      md5: cea3cc32afdd888cbaf77cd6f94afc43.dir
+      size: 44198
+      nfiles: 1
+    - path: placement.py
+      hash: md5
+      md5: 72f4fce58378a39a2c3151b594b8ca99
+      size: 7932
+    - path: placement_plot.py
+      hash: md5
+      md5: ad810cc5048aa989e017b518cb15ea0d
+      size: 5908
+    - path: run/
+      hash: md5
+      md5: 26c3a7b6727285173e20c62810cc031f.dir
+      size: 18202500
+      nfiles: 2
+    outs:
+    - path: images/
+      hash: md5
+      md5: a530cbe4406392b43e341aab64148bc5.dir
+      size: 540190
+      nfiles: 4
+  hash:
+    cmd: bash print_hash.sh > hash.txt
+    deps:
+    - path: clustering/images/blob/
+      hash: md5
+      md5: fe0a76f561f35f774a5a3dcfce956374.dir
+      size: 63008
+      nfiles: 3
+    - path: clustering/images/blob2_small/
+      hash: md5
+      md5: ffe01fc1845a3c3df7bc54040dcc0d62.dir
+      size: 233258
+      nfiles: 2
+    - path: placement/images/
+      hash: md5
+      md5: a530cbe4406392b43e341aab64148bc5.dir
+      size: 540190
+      nfiles: 4
+    - path: print_hash.sh
+      hash: md5
+      md5: 23bee183478119c0808c125208533b22
+      size: 502
+    outs:
+    - path: hash.txt
+      hash: md5
+      md5: 73fd60619935f2797b4142951adca0db
+      size: 687
