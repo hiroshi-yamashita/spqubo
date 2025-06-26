@@ -1,0 +1,104 @@
+stages:
+  build:
+    wdir: spqubolib/spqubolib
+    cmd: python setup.py build_ext --inplace
+    deps:
+    - interaction
+    outs:
+    - build/lib.linux-aarch64-cpython-311/
+  blobnbc:
+    wdir: clustering
+    cmd: bash ../nbconvert.sh blob.ipynb blob.py
+    deps:
+      - ../nbconvert.sh
+      - blob.ipynb
+    outs:
+      - blob.py
+  blob2smallnbc:
+    wdir: clustering
+    cmd: bash ../nbconvert.sh blob2_small.ipynb blob2_small.py
+    deps:
+      - ../nbconvert.sh
+      - blob2_small.ipynb
+    outs:
+      - blob2_small.py
+  placementnbc:
+    wdir: placement
+    cmd: bash ../nbconvert.sh placement.ipynb placement.py
+    deps:
+      - ../nbconvert.sh
+      - placement.ipynb
+    outs:
+      - placement.py
+  blobrun:
+    wdir: clustering
+    cmd: export STAGE=run && python blob.py
+    deps:
+      - ../spqubolib/spqubolib/
+      - blob.py
+      - blob_experiment.py
+    outs:
+      - run/
+  blob:
+    wdir: clustering
+    cmd: export STAGE=plot && python blob.py
+    deps:
+      - ../spqubolib/spqubolib/
+      - blob.py
+      - blob_plot.py
+      - run/
+    outs:
+      - images/blob/
+  blob2small:
+    wdir: clustering
+    cmd: export STAGE=plot && python blob2_small.py
+    deps:
+      - ../spqubolib/spqubolib/
+      - blob2_small.py
+      - blob_experiment.py
+      - blob_plot.py
+      - blob2_plot.py
+    outs:
+      - images/blob2_small/
+  placementrun:
+    # frozen: true
+    wdir: placement
+    cmd: export STAGE=run && python placement.py
+    deps:
+      - ../spqubolib/spqubolib/
+      - placement.py
+      - placement_experiment.py
+    outs:
+      - run/
+  placementcomptime:
+    frozen: true
+    wdir: placement
+    cmd: export STAGE=comptime && python placement.py
+    deps:
+      - ../spqubolib/spqubolib/
+      - placement.py
+      - placement_experiment.py
+      - run/
+    outs:
+      - comptime/
+  placement:
+    wdir: placement
+    cmd: export STAGE=plot && python placement.py
+    deps:
+      - ../spqubolib/spqubolib/
+      - placement.py
+      - placement_plot.py
+      - run/
+      - comptime/
+    outs:
+      - images/
+  hash:
+    cmd: bash print_hash.sh > hash.txt
+    deps: 
+      - clustering/images/blob/
+      - clustering/images/blob2_small/
+      - placement/images/
+      - print_hash.sh
+    outs:
+      - hash.txt
+
