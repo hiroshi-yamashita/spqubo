@@ -71,7 +71,7 @@ stages:
     outs:
       - run/
   placementcomptime:
-    frozen: true
+    # frozen: true
     wdir: placement
     cmd: export STAGE=comptime && python placement.py
     deps:
