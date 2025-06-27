@@ -55,13 +55,13 @@ stages:
       size: 216
     - path: placement.ipynb
       hash: md5
-      md5: 62c64b44da4154b47f69b2b9348a03ab
-      size: 13427
+      md5: 2e578f9a234216026cbbcd9f6daa6d36
+      size: 13391
     outs:
     - path: placement.py
       hash: md5
-      md5: c41775a0405cf46fd6ce71b4e1ededf9
-      size: 8164
+      md5: a7aaf3bb490bfe15205d00b7056260d3
+      size: 8128
   blobrun:
     cmd: export STAGE=run && python blob.py
     deps:
@@ -159,8 +159,8 @@ stages:
       nfiles: 37
     - path: placement.py
       hash: md5
-      md5: c41775a0405cf46fd6ce71b4e1ededf9
-      size: 8164
+      md5: a7aaf3bb490bfe15205d00b7056260d3
+      size: 8128
     - path: placement_experiment.py
       hash: md5
       md5: bee9c8ea4ccbda005f1ab7371ee79fe3
@@ -168,7 +168,7 @@ stages:
     outs:
     - path: run/
       hash: md5
-      md5: 26c3a7b6727285173e20c62810cc031f.dir
+      md5: 7ae7f51c559bc01118003c7b1cc039a7.dir
       size: 18202500
       nfiles: 2
   placementcomptime:
@@ -213,21 +213,21 @@ stages:
       nfiles: 1
     - path: placement.py
       hash: md5
-      md5: c41775a0405cf46fd6ce71b4e1ededf9
-      size: 8164
+      md5: a7aaf3bb490bfe15205d00b7056260d3
+      size: 8128
     - path: placement_plot.py
       hash: md5
       md5: 0bfa6435074597f1ab431cca11975be3
       size: 8251
     - path: run/
       hash: md5
-      md5: 26c3a7b6727285173e20c62810cc031f.dir
+      md5: 7ae7f51c559bc01118003c7b1cc039a7.dir
       size: 18202500
       nfiles: 2
     outs:
     - path: images/
       hash: md5
-      md5: 6a546e6ef3d5f1cc58185a3672dd5a25.dir
+      md5: 00fb1a73bbe0b8b72a7cab12970bce13.dir
       size: 928326
       nfiles: 5
   hash:
@@ -245,7 +245,7 @@ stages:
       nfiles: 2
     - path: placement/images/
       hash: md5
-      md5: 6a546e6ef3d5f1cc58185a3672dd5a25.dir
+      md5: 00fb1a73bbe0b8b72a7cab12970bce13.dir
       size: 928326
       nfiles: 5
     - path: print_hash.sh
@@ -255,5 +255,5 @@ stages:
     outs:
     - path: hash.txt
       hash: md5
-      md5: 931552c39cefa89118ec8026cc35ef2e
-      size: 760
+      md5: 36e4ee1d3afddbb98cc92a1fdb65cfbf
+      size: 742
