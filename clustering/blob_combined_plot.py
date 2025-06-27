@@ -2,6 +2,7 @@ from blob_plot import _plot_problem_a, _plot_answer_2_scatter
 from blob2_plot import _plot_c, _plot_d, _plot_e
 import matplotlib.gridspec as gridspec
 import matplotlib.pyplot as plt
+plt.rcParams["font.family"] = "Noto Sans Math"
 
 
 def savefig(filename, fig):
@@ -49,14 +50,14 @@ def composed_plot(kwargs_1, kwargs_2, filename):
     _plot_problem_a(df_prob, B, fig, ax1)
     ax.text(tx, ty,
             "a", fontsize=18,
-            transform=ax.transAxes, va='bottom', ha='right', weight="bold")
+            transform=ax.transAxes, va='bottom', ha='right', weight="bold", family="Noto Sans")
     axc += 1
 
     ax = axes[axc]
     _plot_answer_2_scatter(df_prob, B, ans, K, Nk, fig, ax)
     ax.text(tx, ty,
             "b", fontsize=18,
-            transform=ax.transAxes, va='bottom', ha='right', weight="bold")
+            transform=ax.transAxes, va='bottom', ha='right', weight="bold", family="Noto Sans")
     axc += 1
 
     q = kwargs_2['q']
@@ -66,21 +67,21 @@ def composed_plot(kwargs_1, kwargs_2, filename):
     _plot_c(q, fig, ax)
     ax.text(tx, ty,
             'c', fontsize=18,
-            transform=ax.transAxes, va='bottom', ha='left', weight="bold")
+            transform=ax.transAxes, va='bottom', ha='left', weight="bold", family="Noto Sans")
     axc += 1
 
     ax = axes[axc]
     _plot_d(q, fig, ax)
     ax.text(tx, ty,
             'd', fontsize=18,
-            transform=ax.transAxes, va='bottom', ha='left', weight="bold")
+            transform=ax.transAxes, va='bottom', ha='left', weight="bold", family="Noto Sans")
     axc += 1
 
     ax = axes[axc]
     _plot_e(q, fig, ax)
     ax.text(tx, ty,
             'e', fontsize=18,
-            transform=ax.transAxes, va='bottom', ha='left', weight="bold")
+            transform=ax.transAxes, va='bottom', ha='left', weight="bold", family="Noto Sans")
     axc += 1
 
     for ax in [ax3, ax4, ax5]:

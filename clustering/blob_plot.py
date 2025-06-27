@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+plt.rcParams["font.family"] = "Noto Sans Math"
 import matplotlib.cm as cm
 
 
@@ -78,7 +79,7 @@ def plot_problem(df, L, filename, subcaption=None):
         tx, ty = -0.20, 1.1
         ax.text(tx, ty,
                 subcaption, fontsize=18,
-                transform=ax.transAxes, va='bottom', ha='right', weight="bold")
+                transform=ax.transAxes, va='bottom', ha='right', weight="bold", family="Noto Sans")
 
     #### ####
 
@@ -159,7 +160,7 @@ def plot_answer_2_scatter(df_prob, L, ans, K, Nk, filename, subcaption=None):
         tx, ty = -0.20, 1.1
         ax.text(tx, ty,
                 subcaption, fontsize=18,
-                transform=ax.transAxes, va='bottom', ha='right', weight="bold")
+                transform=ax.transAxes, va='bottom', ha='right', weight="bold", family="Noto Sans")
 
     #### ####
 

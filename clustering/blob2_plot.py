@@ -1,6 +1,7 @@
 import numpy as np
 nax = np.newaxis
 import matplotlib.pyplot as plt
+plt.rcParams["font.family"] = "Noto Sans Math"
 from mpl_toolkits.axes_grid1.axes_divider import make_axes_locatable
 
 from spqubolib.interaction import spin_mapping_py as psm
@@ -96,7 +97,7 @@ def plot(q, filename):
     # add title on top-left on the subplot
     ax.text(tx, ty,
             'c', fontsize=18,
-            transform=ax.transAxes, va='bottom', ha='left', weight="bold")
+            transform=ax.transAxes, va='bottom', ha='left', weight="bold", family="Noto Sans")
     axc += 1
 
     #### ####
@@ -106,7 +107,7 @@ def plot(q, filename):
     # add title on top-left on the subplot
     ax.text(tx, ty,
             'd', fontsize=18,
-            transform=ax.transAxes, va='bottom', ha='left', weight="bold")
+            transform=ax.transAxes, va='bottom', ha='left', weight="bold", family="Noto Sans")
     axc += 1
 
     #### ####
@@ -116,7 +117,7 @@ def plot(q, filename):
     # add title on top-left on the subplot
     ax.text(tx, ty,
             'e', fontsize=18,
-            transform=ax.transAxes, va='bottom', ha='left', weight="bold")
+            transform=ax.transAxes, va='bottom', ha='left', weight="bold", family="Noto Sans")
     axc += 1
 
     for ax in axes:

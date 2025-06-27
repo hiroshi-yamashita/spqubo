@@ -1,6 +1,7 @@
 import numpy as np
 nax = np.newaxis
 import matplotlib.pyplot as plt
+plt.rcParams["font.family"] = "Noto Sans Math"
 from mpl_toolkits.axes_grid1.axes_divider import make_axes_locatable
 
 import matplotlib.gridspec as gridspec
@@ -82,7 +83,7 @@ def plot_problem(q, filename):
     _plot_problem_a(q, fig, ax)
     ax.text(tx, ty,
             "a", fontsize=18,
-            transform=ax.transAxes, va='bottom', ha='right', weight="bold")
+            transform=ax.transAxes, va='bottom', ha='right', weight="bold", family="Noto Sans")
     axc += 1
 
     #### ####
@@ -91,7 +92,7 @@ def plot_problem(q, filename):
     _plot_problem_b(q, fig, ax)
     ax.text(tx, ty,
             "b", fontsize=18,
-            transform=ax.transAxes, va='bottom', ha='right', weight="bold")
+            transform=ax.transAxes, va='bottom', ha='right', weight="bold", family="Noto Sans")
     axc += 1
 
     #### ####
@@ -165,7 +166,7 @@ def plot_answer(spins, settings, filename):
     tx, ty = -0.15, 1.1
     ax.text(tx, ty,
             "c", fontsize=18,
-            transform=ax.transAxes, va='bottom', ha='right', weight="bold")
+            transform=ax.transAxes, va='bottom', ha='right', weight="bold", family="Noto Sans")
 
     fig.tight_layout()
     fig.subplots_adjust(left=0.16, right=0.87)
@@ -210,7 +211,7 @@ def composed_plot_problem_and_answer(q, spins, settings, filename):
     _plot_problem_a(q, fig, ax)
     ax.text(tx, ty,
             "a", fontsize=18,
-            transform=ax.transAxes, va='bottom', ha='right', weight="bold")
+            transform=ax.transAxes, va='bottom', ha='right', weight="bold", family="Noto Sans")
     axc += 1
 
     #### ####
@@ -219,7 +220,7 @@ def composed_plot_problem_and_answer(q, spins, settings, filename):
     _plot_problem_b(q, fig, ax)
     ax.text(tx, ty,
             "b", fontsize=18,
-            transform=ax.transAxes, va='bottom', ha='right', weight="bold")
+            transform=ax.transAxes, va='bottom', ha='right', weight="bold", family="Noto Sans")
     axc += 1
 
     #### answer ####
@@ -230,7 +231,7 @@ def composed_plot_problem_and_answer(q, spins, settings, filename):
     tx, ty = -0.15, 1.05
     ax.text(tx, ty,
             "c", fontsize=18,
-            transform=ax.transAxes, va='bottom', ha='right', weight="bold")
+            transform=ax.transAxes, va='bottom', ha='right', weight="bold", family="Noto Sans")
 
     fig.tight_layout()
     fig.subplots_adjust(hspace = 0.4)

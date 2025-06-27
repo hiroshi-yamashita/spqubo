@@ -11,9 +11,12 @@ RUN echo "deb http://snapshot.debian.org/archive/debian/${SNAPSHOT_DATE}/ bookwo
     apt-get install -y --no-install-recommends \
     tzdata \ 
     build-essential \
-    git && \
+    git \
+    fonts-noto && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
+
+RUN fc-cache -fv
 
 RUN pip install pandas==1.5.3
 RUN pip install numpy==1.26.0
