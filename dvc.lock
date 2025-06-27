@@ -55,12 +55,12 @@ stages:
       size: 216
     - path: placement.ipynb
       hash: md5
-      md5: 2e578f9a234216026cbbcd9f6daa6d36
+      md5: 22907d00b75a3cced4a890985f8e42a8
       size: 13391
     outs:
     - path: placement.py
       hash: md5
-      md5: a7aaf3bb490bfe15205d00b7056260d3
+      md5: bba95994d90b7ff03db1c0520d66056b
       size: 8128
   blobrun:
     cmd: export STAGE=run && python blob.py
@@ -159,7 +159,7 @@ stages:
       nfiles: 37
     - path: placement.py
       hash: md5
-      md5: a7aaf3bb490bfe15205d00b7056260d3
+      md5: bba95994d90b7ff03db1c0520d66056b
       size: 8128
     - path: placement_experiment.py
       hash: md5
@@ -181,21 +181,21 @@ stages:
       nfiles: 37
     - path: placement.py
       hash: md5
-      md5: 72f4fce58378a39a2c3151b594b8ca99
-      size: 7932
+      md5: bba95994d90b7ff03db1c0520d66056b
+      size: 8128
     - path: placement_experiment.py
       hash: md5
       md5: bee9c8ea4ccbda005f1ab7371ee79fe3
       size: 10818
     - path: run/
       hash: md5
-      md5: 26c3a7b6727285173e20c62810cc031f.dir
+      md5: 7ae7f51c559bc01118003c7b1cc039a7.dir
       size: 18202500
       nfiles: 2
     outs:
     - path: comptime/
       hash: md5
-      md5: cea3cc32afdd888cbaf77cd6f94afc43.dir
+      md5: 45bd2dd1b78d6251303c3a1bc5fa07f5.dir
       size: 44198
       nfiles: 1
   placement:
@@ -208,12 +208,12 @@ stages:
       nfiles: 37
     - path: comptime/
       hash: md5
-      md5: cea3cc32afdd888cbaf77cd6f94afc43.dir
+      md5: 45bd2dd1b78d6251303c3a1bc5fa07f5.dir
       size: 44198
       nfiles: 1
     - path: placement.py
       hash: md5
-      md5: a7aaf3bb490bfe15205d00b7056260d3
+      md5: bba95994d90b7ff03db1c0520d66056b
       size: 8128
     - path: placement_plot.py
       hash: md5
@@ -227,8 +227,8 @@ stages:
     outs:
     - path: images/
       hash: md5
-      md5: 00fb1a73bbe0b8b72a7cab12970bce13.dir
-      size: 928326
+      md5: ca312470bc7b5fe7fffd0a25d5803aaa.dir
+      size: 925039
       nfiles: 5
   hash:
     cmd: bash print_hash.sh > hash.txt
@@ -245,8 +245,8 @@ stages:
       nfiles: 2
     - path: placement/images/
       hash: md5
-      md5: 00fb1a73bbe0b8b72a7cab12970bce13.dir
-      size: 928326
+      md5: ca312470bc7b5fe7fffd0a25d5803aaa.dir
+      size: 925039
       nfiles: 5
     - path: print_hash.sh
       hash: md5
@@ -255,5 +255,5 @@ stages:
     outs:
     - path: hash.txt
       hash: md5
-      md5: 36e4ee1d3afddbb98cc92a1fdb65cfbf
+      md5: 9c18d4e106a5745f1e93d0194c059bdd
       size: 742
