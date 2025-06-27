@@ -1,4 +1,4 @@
-from blob_plot import _plot_problem_a, _plot_answer_2_scatter
+from blob_plot import _plot_problem_a, _plot_answer_scatter
 from blob2_plot import _plot_c, _plot_d, _plot_e
 import matplotlib.gridspec as gridspec
 import matplotlib.pyplot as plt
@@ -54,7 +54,7 @@ def composed_plot(kwargs_1, kwargs_2, filename):
     axc += 1
 
     ax = axes[axc]
-    _plot_answer_2_scatter(df_prob, B, ans, K, Nk, fig, ax)
+    _plot_answer_scatter(df_prob, B, ans, K, Nk, fig, ax)
     ax.text(tx, ty,
             "b", fontsize=18,
             transform=ax.transAxes, va='bottom', ha='right', weight="bold", family="Noto Sans")

@@ -94,7 +94,6 @@ def plot(q, filename):
 
     ax = axes[axc]
     _plot_c(q, fig, ax)
-    # add title on top-left on the subplot
     ax.text(tx, ty,
             'c', fontsize=18,
             transform=ax.transAxes, va='bottom', ha='left', weight="bold", family="Noto Sans")
@@ -104,7 +103,6 @@ def plot(q, filename):
 
     ax = axes[axc]
     _plot_d(q, fig, ax)
-    # add title on top-left on the subplot
     ax.text(tx, ty,
             'd', fontsize=18,
             transform=ax.transAxes, va='bottom', ha='left', weight="bold", family="Noto Sans")
@@ -114,7 +112,6 @@ def plot(q, filename):
 
     ax = axes[axc]
     _plot_e(q, fig, ax)
-    # add title on top-left on the subplot
     ax.text(tx, ty,
             'e', fontsize=18,
             transform=ax.transAxes, va='bottom', ha='left', weight="bold", family="Noto Sans")
@@ -125,5 +122,4 @@ def plot(q, filename):
 
     #### ####
 
-    # plt.tight_layout()
     savefig(filename, fig)

@@ -89,7 +89,7 @@ def plot_problem(df, L, filename, subcaption=None):
     savefig(filename, fig)
     plt.close()
 
-def _plot_answer_2_scatter(df_prob, L, ans, K, Nk, fig, ax):
+def _plot_answer_scatter(df_prob, L, ans, K, Nk, fig, ax):
 
     df_prob = df_prob.copy()
 
@@ -129,7 +129,7 @@ def _plot_answer_2_scatter(df_prob, L, ans, K, Nk, fig, ax):
     ax.set_ylabel("$d_2$", fontsize=15)
     ax.set_aspect(1)
 
-def plot_answer_2_scatter(df_prob, L, ans, K, Nk, filename, subcaption=None):
+def plot_answer_scatter(df_prob, L, ans, K, Nk, filename, subcaption=None):
     """
     Plot the answer of a clustering problem in a scatter plot.
 
@@ -154,7 +154,7 @@ def plot_answer_2_scatter(df_prob, L, ans, K, Nk, filename, subcaption=None):
 
     #### ####
 
-    _plot_answer_2_scatter(df_prob, L, ans, K, Nk, fig, ax)
+    _plot_answer_scatter(df_prob, L, ans, K, Nk, fig, ax)
 
     if subcaption:
         tx, ty = -0.20, 1.1

@@ -198,9 +198,9 @@ def composed_plot_problem_and_answer(q, spins, settings, filename):
     fig = plt.figure(figsize=(13, 10))
     gs = gridspec.GridSpec(2, 2, height_ratios=[1, 1])
 
-    ax0 = fig.add_subplot(gs[0, 0])      # 左上
-    ax1 = fig.add_subplot(gs[0, 1])      # 右上
-    ax2 = fig.add_subplot(gs[1, :])      # 下段全体（両カラム結合）
+    ax0 = fig.add_subplot(gs[0, 0])
+    ax1 = fig.add_subplot(gs[0, 1])
+    ax2 = fig.add_subplot(gs[1, :])
     axes = [ax0, ax1, ax2]
 
     axc = 0

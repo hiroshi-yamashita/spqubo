@@ -23,13 +23,13 @@ stages:
       size: 216
     - path: blob.ipynb
       hash: md5
-      md5: 1c66dc89228718b371093ec2d9f7b9bf
-      size: 10524
+      md5: 78c8b8a40a1638ae09f554d46dd4bc1e
+      size: 10223
     outs:
     - path: blob.py
       hash: md5
-      md5: bc92bce47602670be2b73897a9ce55cf
-      size: 4603
+      md5: 37b936400d48a4dd87b4279b9bb520ff
+      size: 4460
   blob2smallnbc:
     cmd: bash ../nbconvert.sh blob2_small.ipynb blob2_small.py
     deps:
@@ -72,8 +72,8 @@ stages:
       nfiles: 37
     - path: blob.py
       hash: md5
-      md5: 8bdc0c10f0cc3a4153f281605db24483
-      size: 4679
+      md5: 37b936400d48a4dd87b4279b9bb520ff
+      size: 4460
     - path: blob_experiment.py
       hash: md5
       md5: a9a380869e8b8cff47a8289f070c8a97
@@ -94,20 +94,20 @@ stages:
       nfiles: 37
     - path: blob.py
       hash: md5
-      md5: bc92bce47602670be2b73897a9ce55cf
-      size: 4603
+      md5: 37b936400d48a4dd87b4279b9bb520ff
+      size: 4460
     - path: blob2_small.py
       hash: md5
       md5: 2af8119a093d23c152a5e33bcf7f5555
       size: 1484
     - path: blob_combined_plot.py
       hash: md5
-      md5: a00ecedde30fe76db4c62cac5ad68149
-      size: 2759
+      md5: 0f86612a9c907a766e69f171ab2743f5
+      size: 2755
     - path: blob_plot.py
       hash: md5
-      md5: fecdc95c9ef43d522f82d9203d4cfac1
-      size: 4526
+      md5: 3a79b9a7bede9090b4707c0fa5ec7b8d
+      size: 4520
     - path: run/
       hash: md5
       md5: 3f12c9f700321fda41aa9c065bebbc54.dir
@@ -129,8 +129,8 @@ stages:
       nfiles: 37
     - path: blob2_plot.py
       hash: md5
-      md5: 45bb6dd458c5be1e3e35a01628390adc
-      size: 3677
+      md5: ce8affcdab330ec6538714db44f7f533
+      size: 3523
     - path: blob2_small.py
       hash: md5
       md5: 2af8119a093d23c152a5e33bcf7f5555
@@ -141,8 +141,8 @@ stages:
       size: 8834
     - path: blob_plot.py
       hash: md5
-      md5: fecdc95c9ef43d522f82d9203d4cfac1
-      size: 4526
+      md5: 3a79b9a7bede9090b4707c0fa5ec7b8d
+      size: 4520
     outs:
     - path: images/blob2_small/
       hash: md5
@@ -159,8 +159,8 @@ stages:
       nfiles: 37
     - path: placement.py
       hash: md5
-      md5: 72f4fce58378a39a2c3151b594b8ca99
-      size: 7932
+      md5: c41775a0405cf46fd6ce71b4e1ededf9
+      size: 8164
     - path: placement_experiment.py
       hash: md5
       md5: bee9c8ea4ccbda005f1ab7371ee79fe3
@@ -217,8 +217,8 @@ stages:
       size: 8164
     - path: placement_plot.py
       hash: md5
-      md5: 6835d9b645a189198ea95172562ae4fd
-      size: 8323
+      md5: 0bfa6435074597f1ab431cca11975be3
+      size: 8251
     - path: run/
       hash: md5
       md5: 26c3a7b6727285173e20c62810cc031f.dir
