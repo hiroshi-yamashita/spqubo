@@ -3,6 +3,7 @@ nax = np.newaxis
 import matplotlib.pyplot as plt
 from mpl_toolkits.axes_grid1.axes_divider import make_axes_locatable
 
+import matplotlib.gridspec as gridspec
 
 def savefig(filename, fig):
     """
@@ -168,6 +169,71 @@ def plot_answer(spins, settings, filename):
 
     fig.tight_layout()
     fig.subplots_adjust(left=0.16, right=0.87)
+    savefig(filename, fig)
+    plt.close(fig)
+
+def composed_plot_problem_and_answer(q, spins, settings, filename):
+    """
+    Create a composed plot of the problem and its solution.
+
+    Parameters
+    ----------
+    q : qmodel
+        The spatial quadratic function of the problem to be plotted.
+    spins : np.ndarray
+        The spin array containing the results of the QUBO optimization.
+    settings : Tuple[int, int, float, float, np.ndarray]
+        The settings of the placement problem, including:
+            - Wy: Number of rows in the positions grid.
+            - Wx: Number of columns in the positions grid.
+            - skip_y: Step size in the y direction.
+            - skip_x: Step size in the x direction.
+            - placement_cost: Cost of placement at each position.
+    filename : str
+        The file path to save the plot.
+    """
+    tx, ty = -0.20, 1.05
+
+    fig = plt.figure(figsize=(13, 10))
+    gs = gridspec.GridSpec(2, 2, height_ratios=[1, 1])
+
+    ax0 = fig.add_subplot(gs[0, 0])      # 左上
+    ax1 = fig.add_subplot(gs[0, 1])      # 右上
+    ax2 = fig.add_subplot(gs[1, :])      # 下段全体（両カラム結合）
+    axes = [ax0, ax1, ax2]
+
+    axc = 0
+
+    #### problem ####
+
+    ax = axes[axc]
+    _plot_problem_a(q, fig, ax)
+    ax.text(tx, ty,
+            "a", fontsize=18,
+            transform=ax.transAxes, va='bottom', ha='right', weight="bold")
+    axc += 1
+
+    #### ####
+
+    ax = axes[axc]
+    _plot_problem_b(q, fig, ax)
+    ax.text(tx, ty,
+            "b", fontsize=18,
+            transform=ax.transAxes, va='bottom', ha='right', weight="bold")
+    axc += 1
+
+    #### answer ####
+    ax = axes[axc]
+
+    _plot_answer_c(spins, settings, fig, ax)
+
+    tx, ty = -0.15, 1.05
+    ax.text(tx, ty,
+            "c", fontsize=18,
+            transform=ax.transAxes, va='bottom', ha='right', weight="bold")
+
+    fig.tight_layout()
+    fig.subplots_adjust(hspace = 0.4)
     savefig(filename, fig)
     plt.close(fig)
 

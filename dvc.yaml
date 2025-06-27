@@ -31,6 +31,7 @@ stages:
     outs:
       - placement.py
   blobrun:
+    frozen: true
     wdir: clustering
     cmd: export STAGE=run && python blob.py
     deps:
@@ -46,6 +47,8 @@ stages:
       - ../spqubolib/spqubolib/
       - blob.py
       - blob_plot.py
+      - blob2_small.py
+      - blob_combined_plot.py
       - run/
     outs:
       - images/blob/
