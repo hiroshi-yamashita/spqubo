@@ -22,6 +22,57 @@ def savefig(filename, fig):
     else:
         fig.savefig(filename, dpi=360)
 
+def _plot_c(q, fig, ax):
+    handle = ax.pcolormesh(psm.spinvector_to_spinarr(
+        q.Ly, q.Lx, q.pos, np.ones(q.N)))
+    ax_divider = make_axes_locatable(ax)
+    cax = ax_divider.append_axes("right", size="7%", pad="2%")
+    cb = fig.colorbar(handle, cax=cax)
+    cax.tick_params(labelsize=15)
+    ax.tick_params(labelsize=15)
+    ax.set_ylabel("$d_2$", fontsize=15)
+    ax.set_aspect(1)
+
+
+def _plot_d(q, fig, ax):
+    q_arr = -q.J
+    x_axis = np.fft.fftfreq(q_arr.shape[1], d=1.0/q_arr.shape[1])
+    y_axis = np.fft.fftfreq(q_arr.shape[0], d=1.0/q_arr.shape[0])
+    q_arr = np.fft.fftshift(q_arr)
+    x_axis = np.fft.fftshift(x_axis)
+    y_axis = np.fft.fftshift(y_axis)
+
+    handle = ax.pcolormesh(x_axis, y_axis, q_arr, vmin=-1, shading='nearest')
+    ax_divider = make_axes_locatable(ax)
+    cax = ax_divider.append_axes("right", size="7%", pad="2%")
+    cb = fig.colorbar(handle, cax=cax)
+    cax.tick_params(labelsize=15)
+    ax.tick_params(labelsize=15)
+    ax.set_ylabel("$d_2$", fontsize=15)
+    ax.set_aspect(1)
+
+
+
+def _plot_e(q, fig, ax):
+    q_arr = -q.get_f_J()
+    x_axis = np.fft.fftfreq(q_arr.shape[1], d=1.0/q_arr.shape[1])
+    y_axis = np.fft.fftfreq(q_arr.shape[0], d=1.0/q_arr.shape[0])
+    q_arr = np.fft.fftshift(q_arr)
+    x_axis = np.fft.fftshift(x_axis)
+    y_axis = np.fft.fftshift(y_axis)
+
+    handle = ax.pcolormesh(x_axis, y_axis, q_arr, vmin=-
+                           1000, vmax=1000, shading='nearest')
+    ax_divider = make_axes_locatable(ax)
+    cax = ax_divider.append_axes("right", size="7%", pad="2%")
+    cb = fig.colorbar(handle, cax=cax)
+    cax.tick_params(labelsize=15)
+    ax.tick_params(labelsize=15)
+    ax.set_xlabel("$d_1$", fontsize=15)
+    ax.set_ylabel("$d_2$", fontsize=15)
+    ax.set_aspect(1)
+
+
 
 def plot(q, filename):
     """
@@ -41,16 +92,8 @@ def plot(q, filename):
     #### ####
 
     ax = axes[axc]
-
-    handle = ax.pcolormesh(psm.spinvector_to_spinarr(
-        q.Ly, q.Lx, q.pos, np.ones(q.N)))
-    ax_divider = make_axes_locatable(ax)
-    cax = ax_divider.append_axes("right", size="7%", pad="2%")
-    cb = fig.colorbar(handle, cax=cax)
-    cax.tick_params(labelsize=15)
-    ax.tick_params(labelsize=15)
-    ax.set_ylabel("$d_2$", fontsize=15)
-    ax.set_aspect(1)
+    _plot_c(q, fig, ax)
+    # add title on top-left on the subplot
     ax.text(tx, ty,
             'c', fontsize=18,
             transform=ax.transAxes, va='bottom', ha='left', weight="bold")
@@ -59,56 +102,21 @@ def plot(q, filename):
     #### ####
 
     ax = axes[axc]
-
-    q_arr = -q.J
-    x_axis = np.fft.fftfreq(q_arr.shape[1], d=1.0/q_arr.shape[1])
-    y_axis = np.fft.fftfreq(q_arr.shape[0], d=1.0/q_arr.shape[0])
-    q_arr = np.fft.fftshift(q_arr)
-    x_axis = np.fft.fftshift(x_axis)
-    y_axis = np.fft.fftshift(y_axis)
-
-    handle = ax.pcolormesh(x_axis, y_axis, q_arr, vmin=-1, shading='nearest')
-    ax_divider = make_axes_locatable(ax)
-    cax = ax_divider.append_axes("right", size="7%", pad="2%")
-    cb = fig.colorbar(handle, cax=cax)
-    cax.tick_params(labelsize=15)
-    ax.tick_params(labelsize=15)
-    ax.set_ylabel("$d_2$", fontsize=15)
-    ax.set_aspect(1)
-
+    _plot_d(q, fig, ax)
+    # add title on top-left on the subplot
     ax.text(tx, ty,
             'd', fontsize=18,
             transform=ax.transAxes, va='bottom', ha='left', weight="bold")
-
     axc += 1
 
     #### ####
 
     ax = axes[axc]
-
-    q_arr = -q.get_f_J()
-    x_axis = np.fft.fftfreq(q_arr.shape[1], d=1.0/q_arr.shape[1])
-    y_axis = np.fft.fftfreq(q_arr.shape[0], d=1.0/q_arr.shape[0])
-    q_arr = np.fft.fftshift(q_arr)
-    x_axis = np.fft.fftshift(x_axis)
-    y_axis = np.fft.fftshift(y_axis)
-
-    handle = ax.pcolormesh(x_axis, y_axis, q_arr, vmin=-
-                           1000, vmax=1000, shading='nearest')
-    ax_divider = make_axes_locatable(ax)
-    cax = ax_divider.append_axes("right", size="7%", pad="2%")
-    cb = fig.colorbar(handle, cax=cax)
-    cax.tick_params(labelsize=15)
-    ax.tick_params(labelsize=15)
-    ax.set_xlabel("$d_1$", fontsize=15)
-    ax.set_ylabel("$d_2$", fontsize=15)
-    ax.set_aspect(1)
-
+    _plot_e(q, fig, ax)
     # add title on top-left on the subplot
     ax.text(tx, ty,
             'e', fontsize=18,
             transform=ax.transAxes, va='bottom', ha='left', weight="bold")
-
     axc += 1
 
     for ax in axes:

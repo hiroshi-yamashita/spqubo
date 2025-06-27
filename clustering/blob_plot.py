@@ -33,24 +33,7 @@ def get_color_seq(c):
 
     return ret
 
-
-def plot_problem(df, L, filename, subcaption=None):
-    """
-    Plot a scatter plot for a clustering problem.
-
-    Parameters
-    ----------
-    df : pd.DataFrame
-        The dataframe containing the points to be plotted.
-    L : int
-        The size of the grid where the points are located.
-    filename : str
-        The file path to save the plot.
-    """
-    fig, ax = plt.subplots(1, 1, figsize=(6, 4.5))
-
-    #### ####
-
+def _plot_problem_a(df, L, fig, ax):
     if L > 20:
         s, pad = 18, 5
     else:
@@ -71,6 +54,26 @@ def plot_problem(df, L, filename, subcaption=None):
     ax.set_xlabel("$d_1$", fontsize=15)
     ax.set_ylabel("$d_2$", fontsize=15)
 
+
+def plot_problem(df, L, filename, subcaption=None):
+    """
+    Plot a scatter plot for a clustering problem.
+
+    Parameters
+    ----------
+    df : pd.DataFrame
+        The dataframe containing the points to be plotted.
+    L : int
+        The size of the grid where the points are located.
+    filename : str
+        The file path to save the plot.
+    """
+    fig, ax = plt.subplots(1, 1, figsize=(6, 4.5))
+
+    #### ####
+
+    _plot_problem_a(df, L, fig, ax)
+
     if subcaption:
         tx, ty = -0.20, 1.1
         ax.text(tx, ty,
@@ -85,65 +88,7 @@ def plot_problem(df, L, filename, subcaption=None):
     savefig(filename, fig)
     plt.close()
 
-
-def plot_answer(ans, K, Nk, filename):
-    """
-    Plot the clustering result as a color mesh.
-
-    Parameters
-    ----------
-    ans : np.ndarray
-        The answer array containing the results of the QUBO optimization.
-    K : int
-        The number of clusters.
-    Nk : int
-        The number of points in each cluster, which is 
-        used to compute the number of points in the grid.
-    filename : str
-        The file path to save the plot.
-    """
-    fig, ax = plt.subplots(1, 1, figsize=(6, 4.5))
-
-    #### ####
-
-    ax.pcolormesh(ans.reshape(K, K*Nk))
-
-    ax.set_xlabel("$d_1$", fontsize=15)
-    ax.set_ylabel("$d_2$", fontsize=15)
-
-    #### ####
-
-    fig.tight_layout()
-    fig.subplots_adjust(left=0, right=0.85)
-
-    savefig(filename, fig)
-    plt.close()
-
-
-def plot_answer_2_scatter(df_prob, L, ans, K, Nk, filename, subcaption=None):
-    """
-    Plot the answer of a clustering problem in a scatter plot.
-
-    Parameters
-    ----------
-    df_prob : pd.DataFrame
-        The dataframe containing the points to be plotted.
-    L : int
-        The size of the grid where the points are located.
-    ans : np.ndarray
-        The answer array containing the clustering results.
-    K : int
-        The number of clusters.
-    Nk : int
-        The number of points in each cluster, which is
-        used to compute the number of points in the grid.
-    filename : str
-        The file path to save the plot.
-    """
-
-    fig, ax = plt.subplots(1, 1, figsize=(6, 4.5))
-
-    #### ####
+def _plot_answer_2_scatter(df_prob, L, ans, K, Nk, fig, ax):
 
     df_prob = df_prob.copy()
 
@@ -182,6 +127,33 @@ def plot_answer_2_scatter(df_prob, L, ans, K, Nk, filename, subcaption=None):
     ax.set_xlabel("$d_1$", fontsize=15)
     ax.set_ylabel("$d_2$", fontsize=15)
     ax.set_aspect(1)
+
+def plot_answer_2_scatter(df_prob, L, ans, K, Nk, filename, subcaption=None):
+    """
+    Plot the answer of a clustering problem in a scatter plot.
+
+    Parameters
+    ----------
+    df_prob : pd.DataFrame
+        The dataframe containing the points to be plotted.
+    L : int
+        The size of the grid where the points are located.
+    ans : np.ndarray
+        The answer array containing the clustering results.
+    K : int
+        The number of clusters.
+    Nk : int
+        The number of points in each cluster, which is
+        used to compute the number of points in the grid.
+    filename : str
+        The file path to save the plot.
+    """
+
+    fig, ax = plt.subplots(1, 1, figsize=(6, 4.5))
+
+    #### ####
+
+    _plot_answer_2_scatter(df_prob, L, ans, K, Nk, fig, ax)
 
     if subcaption:
         tx, ty = -0.20, 1.1
