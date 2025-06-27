@@ -52,8 +52,8 @@ def plot(q, filename):
     ax.set_ylabel("$d_2$", fontsize=15)
     ax.set_aspect(1)
     ax.text(tx, ty,
-            '(c)', fontsize=18,
-            transform=ax.transAxes, va='bottom', ha='left')
+            'c', fontsize=18,
+            transform=ax.transAxes, va='bottom', ha='left', weight="bold")
     axc += 1
 
     #### ####
@@ -77,8 +77,8 @@ def plot(q, filename):
     ax.set_aspect(1)
 
     ax.text(tx, ty,
-            '(d)', fontsize=18,
-            transform=ax.transAxes, va='bottom', ha='left')
+            'd', fontsize=18,
+            transform=ax.transAxes, va='bottom', ha='left', weight="bold")
 
     axc += 1
 
@@ -106,8 +106,8 @@ def plot(q, filename):
 
     # add title on top-left on the subplot
     ax.text(tx, ty,
-            '(e)', fontsize=18,
-            transform=ax.transAxes, va='bottom', ha='left')
+            'e', fontsize=18,
+            transform=ax.transAxes, va='bottom', ha='left', weight="bold")
 
     axc += 1
 

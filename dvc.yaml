@@ -61,7 +61,7 @@ stages:
     outs:
       - images/blob2_small/
   placementrun:
-    # frozen: true
+    frozen: true
     wdir: placement
     cmd: export STAGE=run && python placement.py
     deps:
@@ -71,7 +71,7 @@ stages:
     outs:
       - run/
   placementcomptime:
-    # frozen: true
+    frozen: true
     wdir: placement
     cmd: export STAGE=comptime && python placement.py
     deps:

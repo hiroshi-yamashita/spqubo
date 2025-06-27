@@ -75,7 +75,7 @@ def plot_problem(df, L, filename, subcaption=None):
         tx, ty = -0.20, 1.1
         ax.text(tx, ty,
                 subcaption, fontsize=18,
-                transform=ax.transAxes, va='bottom', ha='right')
+                transform=ax.transAxes, va='bottom', ha='right', weight="bold")
 
     #### ####
 
@@ -187,7 +187,7 @@ def plot_answer_2_scatter(df_prob, L, ans, K, Nk, filename, subcaption=None):
         tx, ty = -0.20, 1.1
         ax.text(tx, ty,
                 subcaption, fontsize=18,
-                transform=ax.transAxes, va='bottom', ha='right')
+                transform=ax.transAxes, va='bottom', ha='right', weight="bold")
 
     #### ####
 

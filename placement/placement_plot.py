@@ -58,8 +58,8 @@ def plot_problem(q, filename):
 
     tx, ty = -0.20, 1.1
     ax.text(tx, ty,
-            "(a)", fontsize=18,
-            transform=ax.transAxes, va='bottom', ha='right')
+            "a", fontsize=18,
+            transform=ax.transAxes, va='bottom', ha='right', weight="bold")
 
     axc += 1
 
@@ -86,8 +86,8 @@ def plot_problem(q, filename):
 
     tx, ty = -0.20, 1.1
     ax.text(tx, ty,
-            "(b)", fontsize=18,
-            transform=ax.transAxes, va='bottom', ha='right')
+            "b", fontsize=18,
+            transform=ax.transAxes, va='bottom', ha='right', weight="bold")
 
     axc += 1
 
@@ -157,8 +157,8 @@ def plot_answer(spins, settings, filename):
 
     tx, ty = -0.15, 1.1
     ax.text(tx, ty,
-            "(c)", fontsize=18,
-            transform=ax.transAxes, va='bottom', ha='right')
+            "c", fontsize=18,
+            transform=ax.transAxes, va='bottom', ha='right', weight="bold")
 
 
     #### ####
