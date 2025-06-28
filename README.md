@@ -6,7 +6,7 @@ for constructing and solving optimization problems using spatial QUBO (spQUBO).
 
 # Requirements
 
-This project was developed under Python 3.11.12 and other modules.
+This project was developed with Python 3.11.12 and other modules.
 
 For a complete list of project requirements, please refer to the `Dockerfile`.
 
@@ -39,6 +39,7 @@ dvc repro
 ```
 
 - To run this command, `dvc` must be installed.
+- By default, computation time measurements are disabled. Please copy `data/placement/comptime` to `placement/comptime` first.
 
 ## docker-compose
 
