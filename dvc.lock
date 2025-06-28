@@ -23,8 +23,8 @@ stages:
       size: 216
     - path: blob.ipynb
       hash: md5
-      md5: 78c8b8a40a1638ae09f554d46dd4bc1e
-      size: 10223
+      md5: 7d62cc3f5aecdeecc39ffc4ea2d013bf
+      size: 9026
     outs:
     - path: blob.py
       hash: md5
@@ -39,8 +39,8 @@ stages:
       size: 216
     - path: blob2_small.ipynb
       hash: md5
-      md5: c05617de6466de22672273a2ccc0c310
-      size: 46051
+      md5: f74e782461562cbbb1a3f336d00f2167
+      size: 3905
     outs:
     - path: blob2_small.py
       hash: md5
